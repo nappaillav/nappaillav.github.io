@@ -1,0 +1,326 @@
+---
+layout: none
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Valliappan CA — PhD student in AI/Robotics research. Interested in hierarchical world models, reinforcement learning, and robot learning.">
+  <title>Valliappan CA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --text: #1a1a1a;
+      --muted: #666;
+      --accent: #2563eb;
+      --border: #e5e5e5;
+      --bg: #fff;
+      --max-w: 680px;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      padding: 60px 24px 100px;
+    }
+
+    .wrapper {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    /* ── Header / About ── */
+    .about {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+      margin-bottom: 48px;
+    }
+
+    .about-photo {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 2px solid var(--border);
+    }
+
+    .about-photo-placeholder {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      border: 2px solid var(--border);
+      background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .about-name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .about-tagline {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .about-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .about-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .about-links a:hover { text-decoration: underline; }
+
+    .about-bio {
+      font-size: 0.93rem;
+      color: var(--text);
+    }
+
+    /* ── Sections ── */
+    section { margin-bottom: 52px; }
+
+    h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── Publication / Blog entry list ── */
+    .entry-list { list-style: none; }
+
+    .entry-item {
+      display: flex;
+      gap: 20px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .entry-item:last-child { border-bottom: none; }
+
+    .entry-date {
+      font-size: 0.8rem;
+      color: var(--muted);
+      white-space: nowrap;
+      min-width: 70px;
+      padding-top: 2px;
+    }
+
+    .entry-body { flex: 1; min-width: 0; }
+
+    .entry-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .entry-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .entry-title a:hover { color: var(--accent); }
+
+    .entry-authors {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+
+    .entry-venue {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 5px;
+    }
+
+    .entry-desc {
+      font-size: 0.85rem;
+      color: #444;
+      margin-bottom: 6px;
+    }
+
+    .entry-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .entry-links a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 1px 7px;
+      transition: background 0.15s;
+    }
+
+    .entry-links a:hover { background: #eff6ff; }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: #fef3c7;
+      color: #92400e;
+      border-radius: 4px;
+      padding: 1px 6px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 60px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 500px) {
+      .about { flex-direction: column; gap: 16px; }
+      .about-photo, .about-photo-placeholder { width: 80px; height: 80px; }
+      .entry-item { flex-direction: column; gap: 4px; }
+      .entry-date { min-width: unset; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- ── About ── -->
+  <div class="about">
+    <div class="about-photo-placeholder">V</div>
+    <div>
+      <div class="about-name">Valliappan CA</div>
+      <div class="about-tagline">PhD Student · AI &amp; Robotics Research</div>
+      <div class="about-links">
+        <a href="https://scholar.google.com/" target="_blank">Scholar</a>
+        <a href="https://github.com/nappaillav" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/valliappan-ca" target="_blank">LinkedIn</a>
+        <a href="mailto:valliappan0808@gmail.com">Email</a>
+      </div>
+      <p class="about-bio">
+        I'm a researcher broadly interested in <strong>robot learning</strong>, <strong>hierarchical world models</strong>, and <strong>reinforcement learning</strong>.
+        My work focuses on building agents that can plan and act over long horizons in complex environments.
+        <br><br>
+        Previously, I explored model-based RL and offline learning methods. I enjoy thinking about how structure in the world can be used to make learning more efficient and generalizable.
+        <br><br>
+        Feel free to reach out at <a href="mailto:valliappan0808@gmail.com" style="color:var(--accent)">valliappan0808@gmail.com</a>.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── Research ── -->
+  <section id="research">
+    <h2>Research</h2>
+    <ul class="entry-list">
+
+      <!-- Add your papers here. Template:
+      <li class="entry-item">
+        <span class="entry-date">Mon YYYY</span>
+        <div class="entry-body">
+          <div class="entry-title"><a href="PAPER_URL">Paper Title</a></div>
+          <div class="entry-authors">Author One, Author Two · <em>Venue Name YEAR</em></div>
+          <div class="entry-desc">One-sentence description of what the paper does.</div>
+          <div class="entry-links">
+            <a href="#">paper</a>
+            <a href="#">code</a>
+            <a href="#">project page</a>
+          </div>
+        </div>
+      </li>
+      -->
+
+      <li class="entry-item">
+        <span class="entry-date">Coming<br>soon</span>
+        <div class="entry-body">
+          <div class="entry-title">Publications will appear here</div>
+          <div class="entry-authors">Valliappan CA et al.</div>
+          <div class="entry-desc">Add your papers by editing the Research section in index.html.</div>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- ── Blog ── -->
+  <section id="blog">
+    <h2>Blog</h2>
+    <ul class="entry-list">
+      {% assign posts = site.posts %}
+      {% for post in posts %}
+      <li class="entry-item">
+        <span class="entry-date">{{ post.date | date: "%b %Y" }}</span>
+        <div class="entry-body">
+          <div class="entry-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></div>
+          {% if post.description %}
+          <div class="entry-desc">{{ post.description }}</div>
+          {% elsif post.excerpt %}
+          <div class="entry-desc">{{ post.excerpt | strip_html | truncate: 160 }}</div>
+          {% endif %}
+          {% if post.tags and post.tags != "Other" %}
+          <div class="entry-links">
+            {% for tag in post.tags %}
+            <a href="#">{{ tag }}</a>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </li>
+      {% endfor %}
+      {% if site.posts.size == 0 %}
+      <li class="entry-item">
+        <span class="entry-date">—</span>
+        <div class="entry-body">
+          <div class="entry-title">No posts yet</div>
+          <div class="entry-desc">Add posts to the _posts/ directory with YYYY-MM-DD-title.md filenames.</div>
+        </div>
+      </li>
+      {% endif %}
+    </ul>
+  </section>
+
+  <footer>
+    &copy; {{ "now" | date: "%Y" }} Valliappan CA
+  </footer>
+
+</div>
+</body>
+</html>
